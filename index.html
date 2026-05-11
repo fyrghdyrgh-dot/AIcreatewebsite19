@@ -1,0 +1,1414 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>职场 AI 办公工具导航｜写作·表格·会议·协作</title>
+  <meta name="description" content="职场 AI 办公工具导航：写作、表格、PPT、会议纪要、协作与自动化工具一站式收录。支持分类、搜索、收藏与推荐；纯前端单页可直接部署。" />
+  <meta property="og:title" content="职场 AI 办公工具导航" />
+  <meta property="og:description" content="写作、表格、PPT、会议纪要、协作与自动化工具一站式收录。支持分类、搜索、收藏与推荐；纯前端单页可直接部署。" />
+  <meta property="og:type" content="website" />
+  <style>
+    :root{
+      --bg:#fff7ed;
+      --panel:#ffffff;
+      --panel2:#fffaf3;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --line:rgba(31,41,55,.12);
+      --shadow:0 12px 34px rgba(31,41,55,.10);
+      --accent:#f97316;
+      --accent2:#ea580c;
+      --good:#22c55e;
+      --warn:#f59e0b;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(900px 420px at 12% 0%, rgba(249,115,22,.16), transparent 55%),
+        radial-gradient(760px 360px at 92% 6%, rgba(14,165,233,.10), transparent 58%),
+        radial-gradient(520px 280px at 40% 96%, rgba(34,197,94,.08), transparent 60%),
+        linear-gradient(180deg, var(--panel2), var(--bg));
+      color:var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1180px;margin:0 auto;padding:14px}
+    .topbar{
+      position:sticky;top:0;z-index:20;
+      backdrop-filter: blur(10px);
+      background: rgba(255,247,237,.82);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{display:flex;align-items:center;gap:14px;justify-content:space-between;padding:14px 20px;max-width:1180px;margin:0 auto}
+    .brand{display:flex;align-items:center;gap:10px;min-width:260px}
+    .logo{
+      width:36px;height:36px;border-radius:12px;
+      background: radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.42), transparent 60%),
+                  linear-gradient(135deg, rgba(249,115,22,1), rgba(14,165,233,.78));
+      box-shadow: 0 14px 26px rgba(249,115,22,.20);
+    }
+    .brand-title{font-weight:900;letter-spacing:.2px}
+    .brand-sub{font-size:12px;color:var(--muted);margin-top:2px}
+    .brand-text{display:flex;flex-direction:column;line-height:1.1}
+    .navlinks{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+      flex:1;
+      min-width: 0;
+    }
+    .navlinks a{
+      font-size:12.5px;
+      color: rgba(31,41,55,.78);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(31,41,55,.12);
+      background: rgba(255,255,255,.72);
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      white-space:nowrap;
+    }
+    .navlinks a:hover{transform: translateY(-1px); border-color: rgba(249,115,22,.34); background: rgba(255,255,255,.84)}
+    .actions{display:flex;align-items:center;gap:10px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.72);
+      color:var(--text);
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:13px;
+      cursor:pointer;
+      user-select:none;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(249,115,22,.34)}
+    .btn.primary{background: linear-gradient(135deg, rgba(249,115,22,1), rgba(239,68,68,.95)); border-color: rgba(249,115,22,.36); color:#fff; font-weight:850}
+    .btn.ghost{background:transparent}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 10px;border-radius:999px;
+      background: rgba(255,255,255,.72);
+      border:1px solid var(--line);
+      font-size:12px;color:rgba(31,41,55,.82);
+    }
+    .pill b{color:var(--accent2)}
+    .layout{display:grid;grid-template-columns: 1fr 320px;gap:18px;margin-top:12px}
+    .panel{
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .panel.pad{padding:14px}
+    .anchor{scroll-margin-top: 92px}
+    .hero-banner{
+      border-radius: 20px;
+      background:
+        radial-gradient(760px 340px at 18% 18%, rgba(249,115,22,.55), transparent 58%),
+        radial-gradient(760px 340px at 84% 18%, rgba(14,165,233,.40), transparent 58%),
+        radial-gradient(520px 280px at 36% 86%, rgba(34,197,94,.18), transparent 60%),
+        linear-gradient(135deg, #0b1222, #2a1306);
+      box-shadow: 0 18px 64px rgba(31,41,55,.18);
+      padding: 14px 12px 16px;
+    }
+    .hero-inner{max-width: 980px; margin: 0 auto; text-align:center}
+    .hero-title{font-size:22px; letter-spacing:.2px; margin:0; font-weight:900; color:#fff}
+    .hero-sub{margin:8px 0 0;color: rgba(226,232,240,.88);font-size:12.5px}
+    .hero-search{
+      margin: 12px auto 0;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      width: min(780px, 100%);
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: rgba(2,6,23,.58);
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: 0 22px 70px rgba(2,6,23,.28);
+    }
+    .hero-search svg{opacity:.90;color:rgba(255,255,255,.92)}
+    .hero-search input{
+      flex:1;
+      border:0;
+      outline:0;
+      background:transparent;
+      color: rgba(255,255,255,.95);
+      font-size: 14px;
+    }
+    .hero-search input::placeholder{color: rgba(226,232,240,.82)}
+    .hero-meta{
+      margin: 10px auto 0;
+      width: min(860px, 100%);
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      color: rgba(226,232,240,.82);
+      font-size: 12px;
+    }
+    .hero-meta b{color:#fff}
+    .hero-links{
+      margin: 10px auto 0;
+      width: min(920px, 100%);
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .hero-links a{
+      font-size:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.16);
+      color: rgba(226,232,240,.92);
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      white-space:nowrap;
+    }
+    .hero-links a:hover{transform: translateY(-1px); border-color: rgba(249,115,22,.45); background: rgba(255,255,255,.13)}
+    .quick-tools{
+      margin: 12px auto 0;
+      width: min(980px, 100%);
+      display:grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap:10px;
+    }
+    .quick-tool{
+      border: 1px solid rgba(31,41,55,.12);
+      background: rgba(255,255,255,.86);
+      border-radius: 14px;
+      padding: 10px 10px 12px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height: 74px;
+      cursor:pointer;
+      user-select:none;
+      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+    }
+    .quick-tool:hover{transform: translateY(-2px); border-color: rgba(249,115,22,.24); box-shadow: 0 14px 30px rgba(31,41,55,.10)}
+    .qt-ico{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(135deg, rgba(249,115,22,.16), rgba(14,165,233,.12));
+      color: rgba(154,52,18,.98);
+      overflow:hidden;
+    }
+    .qt-ico img{width:100%;height:100%;object-fit:cover;display:block}
+    .qt-name{font-size:12px; color: rgba(31,41,55,.82); text-align:center; line-height:1.2}
+    .recommend-wrap{
+      margin-top: 12px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(31,41,55,.12);
+      border-radius: 18px;
+      box-shadow: 0 18px 60px rgba(31,41,55,.10);
+      overflow:hidden;
+    }
+    .recommend-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(31,41,55,.10);
+      color: rgba(31,41,55,.78);
+      font-size:12.5px;
+    }
+    .recommend-head b{color: rgba(31,41,55,.92)}
+    .recommend-left{display:flex;flex-direction:column;gap:6px;min-width:0}
+    .recommend-tabs{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .seg{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(31,41,55,.12);
+      background: rgba(255,255,255,.76);
+      color: rgba(31,41,55,.78);
+      font-size:12px;
+      cursor:pointer;
+      user-select:none;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .seg:hover{transform: translateY(-1px); border-color: rgba(249,115,22,.24)}
+    .seg.active{background: rgba(249,115,22,.14); border-color: rgba(249,115,22,.26); color: rgba(154,52,18,.98)}
+    .recommend-desc{font-size:12px;color: rgba(31,41,55,.70);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .recommend-body{padding: 10px 12px 12px}
+    .rec-grid{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap:14px;
+    }
+    .rec-card{
+      border: 1px solid rgba(31,41,55,.12);
+      background: rgba(255,255,255,.86);
+      border-radius: 14px;
+      padding: 14px;
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      min-height: 92px;
+      cursor:pointer;
+      user-select:none;
+      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+    }
+    .rec-card:hover{transform: translateY(-2px); border-color: rgba(249,115,22,.24); box-shadow: 0 14px 30px rgba(31,41,55,.10)}
+    .rec-icon{
+      width:46px;height:46px;border-radius:16px;
+      display:flex;align-items:center;justify-content:center;
+      background: linear-gradient(135deg, rgba(249,115,22,.16), rgba(14,165,233,.12));
+      color: rgba(154,52,18,.98);
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .rec-icon img{width:100%;height:100%;object-fit:cover;display:block}
+    .rec-icon svg{width:22px;height:22px}
+    .rec-text{min-width:0;display:flex;flex-direction:column;gap:4px}
+    .rec-name{font-weight:900;font-size:13px;color: rgba(31,41,55,.92);line-height:1.2}
+    .rec-sub{font-size:12px;color: rgba(75,85,99,.92);white-space:normal;overflow:visible;line-height:1.35}
+    .rec-hint{margin-top:10px;font-size:12px;color: rgba(75,85,99,.92)}
+    .tabs{
+      display:flex;
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      -webkit-overflow-scrolling: touch;
+      gap:8px;
+      padding:10px 12px;
+      border-top:1px solid var(--line);
+    }
+    .tab{
+      padding:8px 10px;border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.76);
+      color: rgba(31,41,55,.84);
+      font-size:12px;
+      white-space:nowrap;
+      cursor:pointer;
+      transition: background .12s ease, border-color .12s ease, transform .12s ease;
+    }
+    .tab:hover{transform: translateY(-1px); border-color: rgba(249,115,22,.34)}
+    .tab.active{
+      background: rgba(14,165,233,.10);
+      border-color: rgba(14,165,233,.22);
+      color: rgba(31,41,55,.92);
+    }
+    .cat-quick{
+      display:flex;
+      gap:10px;
+      padding: 10px 12px 12px;
+      border-top: 1px solid var(--line);
+      overflow-x:auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .cat-btn{
+      border: 1px solid rgba(31,41,55,.12);
+      background: rgba(255,255,255,.78);
+      border-radius: 14px;
+      padding: 9px 10px 10px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:8px;
+      cursor:pointer;
+      user-select:none;
+      min-width: 92px;
+      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+    }
+    .cat-btn:hover{transform: translateY(-2px); border-color: rgba(249,115,22,.24); box-shadow: 0 14px 30px rgba(31,41,55,.10)}
+    .cat-btn.active{border-color: rgba(14,165,233,.22); box-shadow: 0 14px 30px rgba(14,165,233,.12)}
+    .cat-ico{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(135deg, rgba(249,115,22,.16), rgba(14,165,233,.12));
+      color: rgba(154,52,18,.98);
+    }
+    .cat-name{font-size:12px; color: rgba(31,41,55,.80); text-align:center; line-height:1.2}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:12px;
+      padding:14px 16px 16px;
+      border-top:1px solid var(--line);
+    }
+    .card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.86);
+      border-radius: var(--radius);
+      padding:12px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-height: 152px;
+      transition: transform .12s ease, border-color .12s ease;
+    }
+    .card:hover{transform: translateY(-2px); border-color: rgba(249,115,22,.22)}
+    .card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+    .card-title{font-weight:900;font-size:13.5px;margin:0}
+    .card-desc{margin:0;color:var(--muted);font-size:12.5px}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{
+      font-size:11px;
+      padding:4px 8px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.76);
+      color: rgba(31,41,55,.72);
+    }
+    .card-actions{display:flex;align-items:center;gap:8px;margin-top:auto}
+    .mini{
+      padding:8px 10px;border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.76);
+      color: rgba(31,41,55,.90);
+      font-size:12px;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      transition: transform .12s ease, border-color .12s ease;
+    }
+    .mini:hover{transform: translateY(-1px); border-color: rgba(249,115,22,.30)}
+    .mini.primary{
+      background: rgba(249,115,22,.14);
+      border-color: rgba(249,115,22,.26);
+    }
+    .star{
+      width:34px;height:34px;border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.76);
+      cursor:pointer;
+      display:inline-flex;align-items:center;justify-content:center;
+    }
+    .star[aria-pressed="true"]{border-color: rgba(14,165,233,.26); background: rgba(14,165,233,.10)}
+    .muted{color:var(--muted)}
+    .rightcol{display:flex;flex-direction:column;gap:12px}
+    .ad{
+      border: 1px solid rgba(31,41,55,.12);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.86);
+      padding:12px;
+    }
+    .ad-top{margin:16px 0 0}
+    .ad-label{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px
+    }
+    .ad-label span{font-size:12px;color:rgba(31,41,55,.72)}
+    .badge{
+      font-size:11px;
+      padding:4px 8px;
+      border-radius:999px;
+      border:1px solid rgba(249,115,22,.22);
+      background: rgba(249,115,22,.14);
+      color: rgba(154,52,18,.98);
+    }
+    .ad-slot{
+      border-radius: 10px;
+      background: rgba(255,255,255,.72);
+      border:1px solid rgba(31,41,55,.10);
+      padding:12px;
+      color: rgba(31,41,55,.84);
+      font-size:12.5px;
+      line-height:1.55;
+    }
+    .ad-slot b{color:rgba(31,41,55,.92)}
+    .stat{
+      display:flex;gap:10px;flex-wrap:wrap
+    }
+    .stat .pill{background: rgba(255,255,255,.72)}
+    .foot{
+      margin:18px 0 30px;
+      padding:14px 16px;
+      border-top:1px solid var(--line);
+      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    }
+    .foot a{color:rgba(31,41,55,.78)}
+    .foot a:hover{color:rgba(31,41,55,.92)}
+    .divider{width:1px;height:12px;background: var(--line)}
+    .toast{
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 18px;
+      background: rgba(31,41,55,.92);
+      border: 1px solid rgba(31,41,55,.18);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 12.5px;
+      color: rgba(255,255,255,.96);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .18s ease, transform .18s ease;
+      z-index: 60;
+      max-width: calc(100vw - 24px);
+      text-align:center;
+    }
+    .toast.show{opacity:1; transform: translateX(-50%) translateY(-6px)}
+    .left-ad{
+      position: fixed;
+      left: 14px;
+      top: 120px;
+      z-index: 30;
+      width: 210px;
+      border: 1px solid rgba(31,41,55,.12);
+      border-radius: 16px;
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 18px 60px rgba(31,41,55,.12);
+      overflow:hidden;
+    }
+    .left-ad-head{
+      padding: 10px 10px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .left-ad-title{font-weight:900;font-size:13px;color: rgba(31,41,55,.92)}
+    .left-ad-body{padding: 10px}
+    .left-ad-body p{margin:0;color: rgba(75,85,99,.92);font-size:12px;line-height:1.55}
+    .left-ad-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .left-ad .mini{padding:7px 10px}
+    @media (max-width: 1220px){
+      .left-ad{display:none}
+    }
+    .float-cta{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 55;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      align-items:flex-end;
+    }
+    .fab{
+      border-radius: 999px;
+      padding: 12px 14px;
+      background: linear-gradient(135deg, rgba(249,115,22,1), rgba(239,68,68,.95));
+      color: white;
+      border: 1px solid rgba(249,115,22,.55);
+      box-shadow: 0 18px 40px rgba(249,115,22,.18);
+      cursor:pointer;
+      font-size: 13px;
+      display:inline-flex;align-items:center;gap:8px;
+      user-select:none;
+      font-weight:850;
+      transition: transform .12s ease;
+    }
+    .fab:hover{transform: translateY(-1px)}
+    .fab.secondary{
+      background: rgba(255,255,255,.76);
+      color: rgba(31,41,55,.90);
+      border-color: rgba(31,41,55,.12);
+      box-shadow: var(--shadow);
+      font-weight:700;
+    }
+    .inline-ad{
+      grid-column: 1 / -1;
+      border-radius: var(--radius);
+      overflow:hidden;
+    }
+    .content-sections{display:grid;gap:12px;margin-top:14px}
+    .section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+    .section-title{margin:0;font-size:14px;font-weight:900}
+    .section-sub{margin:4px 0 0;color:var(--muted);font-size:12.5px}
+    @media (max-width: 980px){
+      .layout{grid-template-columns: 1fr}
+      .rightcol{order:-1}
+      .brand{min-width:0}
+      .navlinks{justify-content:flex-start}
+    }
+    @media (max-width: 980px){
+      .quick-tools{grid-template-columns: repeat(4, minmax(0, 1fr))}
+      .rec-grid{grid-template-columns: repeat(2, minmax(0, 1fr))}
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns: repeat(2, minmax(0, 1fr))}
+    }
+    @media (max-width: 720px){
+      .rec-grid{grid-template-columns: repeat(1, minmax(0, 1fr))}
+    }
+    @media (max-width: 520px){
+      .topbar-inner{flex-wrap:wrap}
+      .brand{width:100%}
+      .navlinks{width:100%;justify-content:flex-start}
+      .actions{width:100%;justify-content:flex-end}
+      .grid{grid-template-columns: 1fr}
+      .float-cta{right: 12px; bottom: 12px}
+      .hero-title{font-size:22px}
+      .quick-tools{grid-template-columns: repeat(2, minmax(0, 1fr))}
+    }
+  </style>
+</head>
+<body>
+  <aside class="left-ad" aria-label="侧边推荐">
+    <div class="left-ad-head">
+      <div class="left-ad-title">1bgp.com 部署推荐</div>
+      <span class="badge">合作</span>
+    </div>
+    <div class="left-ad-body">
+      <p>适合部署内部工具、协作系统、知识库与自动化任务：云/物理机可选，资源按需扩。</p>
+      <div class="left-ad-actions">
+        <a class="mini primary" href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="oa1_left_primary">去官网选型</a>
+        <a class="mini" href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="oa1_left_secondary">查看方案</a>
+      </div>
+    </div>
+  </aside>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="brand-text">
+          <div class="brand-title">职场 AI 办公工具导航</div>
+          <div class="brand-sub">写作 · 表格 · PPT · 会议纪要 · 自动化</div>
+        </div>
+      </div>
+
+      <nav class="navlinks" aria-label="职场导航">
+        <a href="#tools" data-event="oa1_nav_tools">工具导航</a>
+        <a href="#oa1-news" data-event="oa1_nav_news">效率快报</a>
+        <a href="#oa1-templates" data-event="oa1_nav_templates">模板库</a>
+        <a href="#oa1-checklist" data-event="oa1_nav_checklist">SOP 清单</a>
+      </nav>
+
+      <div class="actions">
+        <button class="btn ghost" id="showFavs" data-event="oa1_nav_show_favs" type="button">只看收藏</button>
+        <button class="btn primary" id="submitTool" data-event="oa1_nav_submit" type="button">部署选型</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-banner" aria-label="搜索区域">
+      <div class="hero-inner">
+        <h1 class="hero-title">职场 AI 办公工具导航</h1>
+        <div class="hero-sub">从写材料到做汇报，从会议纪要到自动化流程：把常用入口一次找全</div>
+
+        <div class="hero-search" role="search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" opacity=".95"/>
+            <path d="M16.2 16.2 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".95"/>
+          </svg>
+          <input id="q" type="text" autocomplete="off" placeholder="搜索工具 / 场景 / 关键词…" />
+        </div>
+
+        <div class="hero-meta">
+          <span>当前分类：<b id="activeCat">全部</b></span>
+          <span>匹配结果：<b id="count">0</b></span>
+          <span>分类：<b id="catCount">0</b></span>
+          <span>工具：<b id="toolCount">0</b></span>
+          <span>收藏：<b id="favCount">0</b></span>
+        </div>
+
+        <div class="hero-links" aria-label="快捷入口">
+          <a href="#oa1-news" data-event="oa1_hero_news">效率快报</a>
+          <a href="#oa1-templates" data-event="oa1_hero_templates">模板库</a>
+          <a href="#oa1-checklist" data-event="oa1_hero_checklist">SOP 清单</a>
+          <a href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="oa1_hero_1bgp">1bgp 服务器</a>
+        </div>
+
+        <div class="quick-tools" id="quickTools" aria-label="快捷工具"></div>
+      </div>
+    </section>
+
+    <section class="recommend-wrap" aria-label="推荐工具">
+      <div class="recommend-head">
+        <div class="recommend-left">
+          <div class="recommend-tabs" role="tablist" aria-label="推荐切换">
+            <button class="seg active" type="button" data-rec="recommend" data-event="oa1_rec_tab_recommend" aria-selected="true">常用入口</button>
+            <button class="seg" type="button" data-rec="recent" data-event="oa1_rec_tab_recent" aria-selected="false">最近使用</button>
+          </div>
+          <div class="recommend-desc" id="recommendDesc">精选高频入口 + 全量工具集合；图标来自外链或自动兜底。</div>
+        </div>
+        <div></div>
+      </div>
+      <div class="recommend-body">
+        <div class="rec-grid" id="recommendGrid" aria-label="推荐工具列表"></div>
+        <div class="rec-hint" id="recommendHint" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="layout anchor" id="tools">
+      <section class="panel" aria-label="工具列表">
+        <div class="tabs" id="tabs" role="tablist" aria-label="分类筛选"></div>
+        <div class="cat-quick" id="catQuick" aria-label="分类快捷"></div>
+        <div class="grid" id="grid" aria-live="polite"></div>
+
+        <div class="foot">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <span class="muted">© <span id="year"></span> 职场 AI 办公工具导航</span>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="#" id="openDisclaimer" data-event="oa1_open_disclaimer">使用说明</a>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="#" id="openPrivacy" data-event="oa1_open_privacy">隐私说明</a>
+          </div>
+          <div class="muted">外链仅供参考，请自行甄别风险。</div>
+        </div>
+      </section>
+
+      <aside class="rightcol" aria-label="侧栏">
+        <section class="panel pad">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+            <div>
+              <div style="font-weight:900">1bgp.com 部署推荐</div>
+              <div class="muted" style="font-size:12px;margin-top:4px">云服务器 · 物理服务器 · 容器/算力部署</div>
+            </div>
+            <span class="badge">推荐</span>
+          </div>
+          <div class="muted" style="font-size:12.5px;margin-top:10px;line-height:1.7">
+            适合：内部工具、数据看板、知识库、自动化任务与 AI 服务。需要更稳的场景可选物理机。
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+            <a class="mini primary" href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="oa1_cta_1bgp_primary">去官网选型</a>
+            <a class="mini" href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="oa1_cta_1bgp_secondary">查看报价</a>
+          </div>
+        </section>
+
+        <section class="ad ad-top">
+          <div class="ad-label">
+            <span>效率提示</span>
+            <span class="badge">建议</span>
+          </div>
+          <div class="ad-slot">
+            <div><b>写材料的黄金结构</b></div>
+            <div class="muted">目标一句话 → 背景三要素 → 方案三步走 → 风险/成本 → 结论与下一步。</div>
+            <div style="margin-top:10px" class="stat">
+              <span class="pill">可复制</span>
+              <span class="pill">可复用</span>
+              <span class="pill">可交付</span>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </section>
+
+    <section class="content-sections">
+      <section class="panel pad anchor" id="oa1-news" aria-label="效率快报">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">效率快报</h2>
+            <p class="section-sub">常见办公场景：写材料、做汇报、开会纪要与跨部门协作。</p>
+          </div>
+        </div>
+        <div class="muted" style="font-size:12.5px;margin-top:10px;line-height:1.75">
+          建议每周固定复盘：本周产出（文档/表格/PPT）→ 阻塞点 → 自动化机会 → 下周优先级。把重复动作“流程化”，把关键动作“模板化”。
+        </div>
+      </section>
+
+      <section class="panel pad anchor" id="oa1-templates" aria-label="模板库">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">模板库</h2>
+            <p class="section-sub">汇报提纲、会议纪要、周报月报、需求说明与 SOP 模板。</p>
+          </div>
+        </div>
+        <div class="muted" style="font-size:12.5px;margin-top:10px;line-height:1.75">
+          会议纪要模板：议题/目标 → 讨论要点 → 决策结论 → 待办（负责人/截止时间）→ 风险与依赖 → 下次会议时间。
+        </div>
+      </section>
+
+      <section class="panel pad anchor" id="oa1-checklist" aria-label="SOP 清单">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">SOP 清单</h2>
+            <p class="section-sub">把工作拆成清单：输入/输出/验收标准一目了然，减少扯皮。</p>
+          </div>
+        </div>
+        <div class="muted" style="font-size:12.5px;margin-top:10px;line-height:1.75">
+          建议每个任务都写三件事：1) 交付物是什么 2) 谁来评审/验收 3) 最晚什么时候要。再补“风险”和“需要的协作方”。
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div class="float-cta">
+    <a class="fab" id="fabMain" href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="oa1_fab_1bgp">查看 1bgp 服务器</a>
+    <button class="fab secondary" id="fabTop" data-event="oa1_fab_back_top" type="button">回到顶部</button>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const tools = [
+      { name: "ChatGPT", desc: "通用写作与问答助手，适合写材料、改稿与生成清单。", url: "https://chat.openai.com", cat: "对话/助手", tags: ["写作","总结","通用"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fchat.openai.com&v=7" },
+      { name: "Kimi", desc: "长文阅读与总结，适合读资料、写方案与整理会议内容。", url: "https://kimi.moonshot.cn", cat: "对话/助手", tags: ["长文","总结","中文"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fkimi.moonshot.cn&v=7" },
+      { name: "豆包", desc: "日常办公与内容生成对话入口，适合起草、润色与改写。", url: "https://www.doubao.com", cat: "对话/助手", tags: ["中文","润色","办公"], icon: "https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/static/image/OnboardingAvatar.bb1504ee.webp" },
+      { name: "通义千问", desc: "通用对话与创作助手，覆盖写作、问答与办公协作。", url: "https://tongyi.aliyun.com", cat: "对话/助手", tags: ["中文","通用","办公"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Ftongyi.aliyun.com&v=7" },
+      { name: "文心一言", desc: "中文写作与问答入口，适合材料撰写与内容辅助。", url: "https://yiyan.baidu.com", cat: "对话/助手", tags: ["中文","写作","问答"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fyiyan.baidu.com&v=7" },
+      { name: "DeepSeek", desc: "推理与编码能力强，也可用来做结构化写作与排错。", url: "https://chat.deepseek.com", cat: "对话/助手", tags: ["推理","结构化","中文"], icon: "https://www.aig123.com/wp-content/uploads/2024/05/deepseek.png" },
+      { name: "Gemini", desc: "多模态能力强，适合图文理解与搜索式问答。", url: "https://gemini.google.com", cat: "对话/助手", tags: ["多模态","问答","资料"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fgemini.google.com&v=7" },
+      { name: "Perplexity", desc: "带引用的检索问答，适合快速查资料与出处。", url: "https://www.perplexity.ai", cat: "对话/助手", tags: ["检索","引用","速查"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.perplexity.ai&v=7" },
+      { name: "Notion AI", desc: "知识库 + 写作一体化，适合沉淀 SOP、复盘与协作。", url: "https://www.notion.so/product/ai", cat: "知识库/文档", tags: ["文档","协作","SOP"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.notion.so&v=7" },
+      { name: "Obsidian", desc: "本地知识库与双链笔记，适合长期沉淀与检索。", url: "https://obsidian.md", cat: "知识库/文档", tags: ["笔记","本地","知识库"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fobsidian.md&v=7" },
+      { name: "飞书文档", desc: "在线文档与协作套件，适合团队文档与流程协作。", url: "https://www.feishu.cn", cat: "协作/团队", tags: ["协作","文档","团队"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.feishu.cn&v=7" },
+      { name: "钉钉", desc: "企业协作与办公入口，适合组织沟通与流程。", url: "https://www.dingtalk.com", cat: "协作/团队", tags: ["企业","协作","流程"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.dingtalk.com&v=7" },
+      { name: "企业微信", desc: "企业沟通与客户联络，适合组织协作与外部联系人。", url: "https://work.weixin.qq.com", cat: "协作/团队", tags: ["企业","沟通","客户"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwork.weixin.qq.com&v=7" },
+      { name: "Slack", desc: "团队沟通工具，适合跨团队协作与集成通知。", url: "https://slack.com", cat: "协作/团队", tags: ["沟通","集成","团队"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fslack.com&v=7" },
+      { name: "Microsoft Teams", desc: "微软协作套件，适合会议、聊天与文件协作。", url: "https://www.microsoft.com/microsoft-teams", cat: "协作/团队", tags: ["会议","协作","微软"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.microsoft.com%2Fmicrosoft-teams&v=7" },
+      { name: "Zoom", desc: "视频会议工具，适合外部会议与远程协作。", url: "https://zoom.us", cat: "会议/纪要", tags: ["会议","远程","协作"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fzoom.us&v=7" },
+      { name: "腾讯会议", desc: "视频会议与协作工具，适合国内会议场景。", url: "https://meeting.tencent.com", cat: "会议/纪要", tags: ["会议","国内","协作"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fmeeting.tencent.com&v=7" },
+      { name: "飞书会议", desc: "会议 + 日程协作，适合团队内部会议与纪要。", url: "https://www.feishu.cn/product/meetings", cat: "会议/纪要", tags: ["会议","纪要","协作"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.feishu.cn%2Fproduct%2Fmeetings&v=7" },
+      { name: "Google Meet", desc: "谷歌会议工具，适合外部沟通与日历协作。", url: "https://meet.google.com", cat: "会议/纪要", tags: ["会议","日历","协作"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fmeet.google.com&v=7" },
+      { name: "Otter.ai", desc: "会议转写与纪要，适合英文会议记录与要点提取。", url: "https://otter.ai", cat: "会议/纪要", tags: ["转写","纪要","英文"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fotter.ai&v=7" },
+      { name: "Fireflies.ai", desc: "自动会议记录与要点提取，适合会议复盘。", url: "https://fireflies.ai", cat: "会议/纪要", tags: ["纪要","要点","自动"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Ffireflies.ai&v=7" },
+      { name: "Whisper", desc: "语音转文字能力（模型/项目），适合做转写流程。", url: "https://github.com/openai/whisper", cat: "会议/纪要", tags: ["转写","开源","语音"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fgithub.com%2Fopenai%2Fwhisper&v=7" },
+      { name: "Microsoft Word", desc: "文档处理工具，适合正式材料、合同与长文编辑。", url: "https://www.microsoft.com/microsoft-365/word", cat: "写作/文档", tags: ["文档","排版","微软"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.microsoft.com%2Fmicrosoft-365%2Fword&v=7" },
+      { name: "Google Docs", desc: "在线文档协作，适合团队同步编辑与评论。", url: "https://docs.google.com/document", cat: "写作/文档", tags: ["文档","协作","在线"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fdocs.google.com%2Fdocument&v=7" },
+      { name: "WPS", desc: "常用办公套件，适合文档/表格/PPT 处理。", url: "https://www.wps.cn", cat: "写作/文档", tags: ["办公套件","中文","常用"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.wps.cn&v=7" },
+      { name: "Grammarly", desc: "英文润色与纠错，适合邮件、报告与对外沟通。", url: "https://www.grammarly.com", cat: "写作/文档", tags: ["英文","润色","纠错"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.grammarly.com&v=7" },
+      { name: "QuillBot", desc: "英文改写与多版本输出，适合邮件与文章润色。", url: "https://quillbot.com", cat: "写作/文档", tags: ["改写","英文","多版本"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fquillbot.com&v=7" },
+      { name: "Hemingway", desc: "英文可读性优化，适合让表达更清晰。", url: "https://hemingwayapp.com", cat: "写作/文档", tags: ["可读性","简化","英文"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fhemingwayapp.com&v=7" },
+      { name: "Microsoft Excel", desc: "表格与数据分析工具，适合数据整理与报表。", url: "https://www.microsoft.com/microsoft-365/excel", cat: "表格/数据", tags: ["表格","报表","分析"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.microsoft.com%2Fmicrosoft-365%2Fexcel&v=7" },
+      { name: "Google Sheets", desc: "在线表格协作，适合共享台账与简单分析。", url: "https://docs.google.com/spreadsheets", cat: "表格/数据", tags: ["在线","协作","表格"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets&v=7" },
+      { name: "Airtable", desc: "表格数据库，适合内容库、项目台账与轻应用。", url: "https://airtable.com", cat: "表格/数据", tags: ["数据库","内容库","协作"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fairtable.com&v=7" },
+      { name: "Notion", desc: "文档 + 数据库一体化，适合知识管理与项目协作。", url: "https://www.notion.so", cat: "表格/数据", tags: ["知识库","数据库","协作"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.notion.so&v=7" },
+      { name: "Metabase", desc: "BI 看板与查询，适合数据可视化与业务分析。", url: "https://www.metabase.com", cat: "表格/数据", tags: ["BI","看板","查询"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.metabase.com&v=7" },
+      { name: "Looker Studio", desc: "数据报表与可视化，适合管理层汇报。", url: "https://lookerstudio.google.com", cat: "表格/数据", tags: ["报表","可视化","汇报"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Flookerstudio.google.com&v=7" },
+      { name: "GA4", desc: "站点统计分析，适合基础数据监测与转化分析。", url: "https://analytics.google.com", cat: "表格/数据", tags: ["统计","转化","监测"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fanalytics.google.com&v=7" },
+      { name: "Microsoft PowerPoint", desc: "演示文稿工具，适合正式汇报与路演。", url: "https://www.microsoft.com/microsoft-365/powerpoint", cat: "PPT/汇报", tags: ["PPT","汇报","微软"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.microsoft.com%2Fmicrosoft-365%2Fpowerpoint&v=7" },
+      { name: "Google Slides", desc: "在线演示协作，适合多人协作与评论。", url: "https://docs.google.com/presentation", cat: "PPT/汇报", tags: ["PPT","协作","在线"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fdocs.google.com%2Fpresentation&v=7" },
+      { name: "Gamma", desc: "生成式演示与页面排版，适合快速做汇报。", url: "https://gamma.app", cat: "PPT/汇报", tags: ["演示","排版","汇报"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fgamma.app&v=7" },
+      { name: "Tome", desc: "故事化演示与页面生成，适合提案与营销。", url: "https://tome.app", cat: "PPT/汇报", tags: ["提案","演示","故事"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Ftome.app&v=7" },
+      { name: "Canva", desc: "设计模板丰富，适合封面、海报与汇报图表。", url: "https://www.canva.com", cat: "设计/图片", tags: ["模板","设计","海报"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.canva.com&v=7" },
+      { name: "Figma", desc: "协作设计与原型工具，适合流程/页面/组件协作。", url: "https://www.figma.com", cat: "设计/图片", tags: ["UI","原型","协作"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.figma.com&v=7" },
+      { name: "Remove.bg", desc: "一键抠图去背景，适合海报与资料图片处理。", url: "https://www.remove.bg", cat: "设计/图片", tags: ["抠图","素材","处理"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.remove.bg&v=7" },
+      { name: "Midjourney", desc: "高质量图像生成，适合做汇报插图与视觉探索。", url: "https://www.midjourney.com", cat: "设计/图片", tags: ["图像","风格","创作"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.midjourney.com&v=7" },
+      { name: "n8n", desc: "开源自动化工作流，适合自部署与连接系统。", url: "https://n8n.io", cat: "自动化/流程", tags: ["开源","自部署","工作流"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fn8n.io&v=7" },
+      { name: "Zapier", desc: "自动化连接工具，适合无代码快速串联 SaaS。", url: "https://zapier.com", cat: "自动化/流程", tags: ["自动化","集成","无代码"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fzapier.com&v=7" },
+      { name: "Make", desc: "可视化自动化平台，适合流程编排与数据路由。", url: "https://www.make.com", cat: "自动化/流程", tags: ["可视化","路由","集成"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.make.com&v=7" },
+      { name: "IFTTT", desc: "轻量自动化规则，适合个人自动化与触发器。", url: "https://ifttt.com", cat: "自动化/流程", tags: ["触发器","规则","轻量"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fifttt.com&v=7" },
+      { name: "Tally", desc: "轻量表单，适合报名、留资、问卷与信息收集。", url: "https://tally.so", cat: "表单/收集", tags: ["表单","报名","留资"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Ftally.so&v=7" },
+      { name: "Typeform", desc: "交互式表单，适合调研问卷与线索收集。", url: "https://www.typeform.com", cat: "表单/收集", tags: ["问卷","调研","交互"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.typeform.com&v=7" },
+      { name: "Calendly", desc: "预约排期工具，适合客户会议与日程协调。", url: "https://calendly.com", cat: "表单/收集", tags: ["预约","日程","协作"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fcalendly.com&v=7" },
+      { name: "Miro", desc: "在线白板协作，适合头脑风暴与共创。", url: "https://miro.com", cat: "协作/团队", tags: ["白板","协作","共创"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fmiro.com&v=7" },
+      { name: "Whimsical", desc: "流程图与线框图，适合产品与流程梳理。", url: "https://whimsical.com", cat: "协作/团队", tags: ["流程图","线框","协作"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwhimsical.com&v=7" },
+      { name: "Excalidraw", desc: "手绘风图表，适合快速表达与分享。", url: "https://excalidraw.com", cat: "协作/团队", tags: ["图表","手绘","快速"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fexcalidraw.com&v=7" },
+      { name: "ProcessOn", desc: "在线作图与流程图工具，适合流程梳理与分享。", url: "https://www.processon.com", cat: "协作/团队", tags: ["流程图","作图","在线"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.processon.com&v=7" },
+      { name: "XMind", desc: "思维导图工具，适合会议讨论与知识结构整理。", url: "https://xmind.app", cat: "协作/团队", tags: ["思维导图","整理","结构"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fxmind.app&v=7" },
+      { name: "Adobe Acrobat", desc: "PDF 编辑与转换，适合合同、资料与扫描件处理。", url: "https://www.adobe.com/acrobat.html", cat: "PDF/扫描", tags: ["PDF","编辑","转换"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.adobe.com%2Facrobat.html&v=7" },
+      { name: "Smallpdf", desc: "在线 PDF 工具箱，适合压缩、合并与转换。", url: "https://smallpdf.com", cat: "PDF/扫描", tags: ["PDF","在线","转换"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fsmallpdf.com&v=7" },
+      { name: "iLovePDF", desc: "在线 PDF 处理，适合合并、拆分与水印。", url: "https://www.ilovepdf.com", cat: "PDF/扫描", tags: ["PDF","合并","拆分"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.ilovepdf.com&v=7" },
+      { name: "DocuSign", desc: "电子签名服务，适合合同签署与流程化审批。", url: "https://www.docusign.com", cat: "PDF/扫描", tags: ["签名","合同","审批"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.docusign.com&v=7" },
+      { name: "Notion Calendar", desc: "日程与任务可视化，适合时间管理与规划。", url: "https://www.notion.so/product/calendar", cat: "时间/任务", tags: ["日程","任务","规划"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.notion.so%2Fproduct%2Fcalendar&v=7" },
+      { name: "Todoist", desc: "任务管理工具，适合 GTD 与个人计划执行。", url: "https://todoist.com", cat: "时间/任务", tags: ["任务","GTD","计划"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Ftodoist.com&v=7" },
+      { name: "Trello", desc: "看板式任务协作，适合项目推进与可视化进度。", url: "https://trello.com", cat: "时间/任务", tags: ["看板","协作","项目"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Ftrello.com&v=7" },
+      { name: "Asana", desc: "团队项目管理，适合跨部门协作与任务分配。", url: "https://asana.com", cat: "时间/任务", tags: ["项目","协作","任务"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fasana.com&v=7" },
+      { name: "Jira", desc: "研发与项目管理工具，适合需求、缺陷与迭代跟踪。", url: "https://www.atlassian.com/software/jira", cat: "时间/任务", tags: ["需求","缺陷","迭代"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.atlassian.com%2Fsoftware%2Fjira&v=7" },
+      { name: "Confluence", desc: "团队知识库与文档协作，适合沉淀规范与记录。", url: "https://www.atlassian.com/software/confluence", cat: "知识库/文档", tags: ["知识库","协作","记录"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.atlassian.com%2Fsoftware%2Fconfluence&v=7" },
+      { name: "GitHub", desc: "代码与文档协作平台，也可用于知识库与项目管理。", url: "https://github.com", cat: "协作/团队", tags: ["协作","项目","版本"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fgithub.com&v=7" },
+      { name: "Lark Base", desc: "飞书多维表格，适合台账、轻应用与内部系统。", url: "https://www.feishu.cn/product/base", cat: "表格/数据", tags: ["多维表格","轻应用","协作"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.feishu.cn%2Fproduct%2Fbase&v=7" },
+      { name: "Power BI", desc: "微软 BI 工具，适合数据建模与管理层报表。", url: "https://powerbi.microsoft.com", cat: "表格/数据", tags: ["BI","报表","微软"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fpowerbi.microsoft.com&v=7" },
+      { name: "Zapier Tables", desc: "轻量表格与自动化结合，适合流程数据承载。", url: "https://zapier.com/tables", cat: "表格/数据", tags: ["表格","自动化","承载"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fzapier.com%2Ftables&v=7" },
+      { name: "Dify", desc: "AI 应用编排与工作流，适合搭建企业内部助手。", url: "https://dify.ai", cat: "自动化/流程", tags: ["工作流","应用","编排"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fdify.ai&v=7" },
+      { name: "Make.com Templates", desc: "Make 模板库，适合直接复用流程案例。", url: "https://www.make.com/en/templates", cat: "自动化/流程", tags: ["模板","流程","案例"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.make.com%2Fen%2Ftemplates&v=7" },
+      { name: "Zapier Templates", desc: "Zapier 模板库，适合复用常见自动化场景。", url: "https://zapier.com/apps", cat: "自动化/流程", tags: ["模板","自动化","场景"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fzapier.com%2Fapps&v=7" },
+      { name: "Google Drive", desc: "文件与协作空间，适合资料沉淀与共享。", url: "https://drive.google.com", cat: "文件/资料", tags: ["文件","共享","协作"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fdrive.google.com&v=7" },
+      { name: "OneDrive", desc: "微软云盘，适合 Office 文件协作与同步。", url: "https://onedrive.live.com", cat: "文件/资料", tags: ["云盘","同步","微软"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fonedrive.live.com&v=7" },
+      { name: "Dropbox", desc: "文件同步与共享，适合对外资料交付。", url: "https://www.dropbox.com", cat: "文件/资料", tags: ["文件","共享","同步"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fwww.dropbox.com&v=7" }
+    ];
+
+    tools.unshift(
+      { name: "腾讯元宝", desc: "腾讯 AI 助手，覆盖搜索、解析与创作场景。", url: "https://yuanbao.tencent.com", cat: "对话/助手", tags: ["腾讯","中文","办公"], icon: "https://www.aig123.com/wp-content/uploads/2024/05/yuanbao.png" },
+      { name: "夸克AI", desc: "搜索与内容辅助入口，适合资料收集与快速写作。", url: "https://www.quark.cn", cat: "对话/助手", tags: ["搜索","资料","效率"], icon: "https://www.aig123.com/wp-content/uploads/2024/05/kuake.png" },
+      { name: "Poe", desc: "多模型对话聚合平台，适合对比不同模型输出。", url: "https://poe.com", cat: "对话/助手", tags: ["多模型","聚合","Bot"], icon: "https://www.aig123.com/favicon/get.php?url=https://poe.com" }
+    );
+
+    const quickTools = [
+      { name: "写周报", q: "周报 模板", cat: "写作/文档" },
+      { name: "做汇报", q: "PPT 汇报", cat: "PPT/汇报" },
+      { name: "做表格", q: "表格 报表", cat: "表格/数据" },
+      { name: "开会纪要", q: "会议 纪要 转写", cat: "会议/纪要" },
+      { name: "做流程", q: "流程图 SOP", cat: "协作/团队" },
+      { name: "自动化", q: "自动化 工作流", cat: "自动化/流程" },
+      { name: "处理PDF", q: "PDF 合并 转换", cat: "PDF/扫描" },
+      { name: "日程任务", q: "任务 日程", cat: "时间/任务" }
+    ];
+
+    const state = {
+      activeCat: "全部",
+      q: "",
+      favOnly: false,
+      favs: new Set()
+    };
+
+    const els = {
+      q: document.getElementById("q"),
+      recommendGrid: document.getElementById("recommendGrid"),
+      recommendDesc: document.getElementById("recommendDesc"),
+      recommendHint: document.getElementById("recommendHint"),
+      tabs: document.getElementById("tabs"),
+      catQuick: document.getElementById("catQuick"),
+      grid: document.getElementById("grid"),
+      activeCat: document.getElementById("activeCat"),
+      count: document.getElementById("count"),
+      catCount: document.getElementById("catCount"),
+      toolCount: document.getElementById("toolCount"),
+      favCount: document.getElementById("favCount"),
+      showFavs: document.getElementById("showFavs"),
+      year: document.getElementById("year"),
+      toast: document.getElementById("toast"),
+      fabMain: document.getElementById("fabMain"),
+      fabTop: document.getElementById("fabTop"),
+      submitTool: document.getElementById("submitTool"),
+      openDisclaimer: document.getElementById("openDisclaimer"),
+      openPrivacy: document.getElementById("openPrivacy"),
+      quickTools: document.getElementById("quickTools")
+    };
+
+    const LS_KEY = "office1:favs";
+    const REC_KEY = "office1:recent";
+
+    function getCategories(items){
+      const set = new Set(items.map(x => x.cat));
+      return ["全部", ...Array.from(set).sort((a,b) => a.localeCompare(b, "zh-Hans-CN"))];
+    }
+
+    function normalize(s){return (s || "").toLowerCase().trim();}
+
+    function matchesQuery(item, q){
+      if(!q) return true;
+      const hay = [
+        item.name,
+        item.desc,
+        item.cat,
+        ...(item.tags || [])
+      ].join(" ").toLowerCase();
+      return hay.includes(q);
+    }
+
+    function shouldShow(item){
+      if(state.activeCat !== "全部" && item.cat !== state.activeCat) return false;
+      if(state.favOnly && !state.favs.has(item.name)) return false;
+      if(!matchesQuery(item, state.q)) return false;
+      return true;
+    }
+
+    function escapeHtml(s){
+      return String(s)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    function toast(msg){
+      els.toast.textContent = msg;
+      els.toast.classList.add("show");
+      clearTimeout(toast._t);
+      toast._t = setTimeout(() => els.toast.classList.remove("show"), 1600);
+    }
+
+    function track(el){
+      const ev = el?.dataset?.event;
+      if(!ev) return;
+      window.__events = window.__events || [];
+      window.__events.push({ event: ev, ts: Date.now() });
+    }
+
+    function saveFavs(){
+      localStorage.setItem(LS_KEY, JSON.stringify(Array.from(state.favs)));
+      updateCounts();
+    }
+
+    function loadFavs(){
+      try{
+        const raw = localStorage.getItem(LS_KEY);
+        if(!raw) return;
+        const arr = JSON.parse(raw);
+        if(Array.isArray(arr)) state.favs = new Set(arr);
+      }catch(_){}
+    }
+
+    function loadRecents(){
+      try{
+        const raw = localStorage.getItem(REC_KEY);
+        if(!raw) return [];
+        const arr = JSON.parse(raw);
+        return Array.isArray(arr) ? arr.filter(Boolean) : [];
+      }catch(_){
+        return [];
+      }
+    }
+
+    function saveRecents(list){
+      try{
+        localStorage.setItem(REC_KEY, JSON.stringify(list.slice(0, 12)));
+      }catch(_){}
+    }
+
+    function pushRecent(name){
+      if(!name) return;
+      const list = loadRecents();
+      const next = [name, ...list.filter(x => x !== name)].slice(0, 12);
+      saveRecents(next);
+    }
+
+    function updateCounts(filteredCount){
+      const categories = getCategories(tools);
+      els.catCount.textContent = String(categories.length - 1);
+      els.toolCount.textContent = String(tools.length);
+      els.favCount.textContent = String(state.favs.size);
+      if(typeof filteredCount === "number") els.count.textContent = String(filteredCount);
+    }
+
+    function renderTabs(){
+      const categories = getCategories(tools);
+      els.tabs.innerHTML = categories.map(cat => {
+        const active = cat === state.activeCat ? "active" : "";
+        return `<button class="tab ${active}" type="button" role="tab" aria-selected="${active ? "true" : "false"}" data-cat="${escapeHtml(cat)}" data-event="oa1_tab_${escapeHtml(cat)}">${escapeHtml(cat)}</button>`;
+      }).join("");
+    }
+
+    function iconSvg(cat){
+      const common = {
+        "对话/助手": `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 18a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H11l-4 3v-3H7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
+        "写作/文档": `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h10a2 2 0 0 1 2 2v14H7a2 2 0 0 0-2 2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2"/><path d="M9 8h8M9 12h8M9 16h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+        "知识库/文档": `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h10a2 2 0 0 1 2 2v14H7a2 2 0 0 0-2 2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2"/><path d="M7 20h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+        "协作/团队": `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 11a4 4 0 1 0-8 0" stroke="currentColor" stroke-width="2"/><path d="M4 20a6 6 0 0 1 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+        "会议/纪要": `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z" stroke="currentColor" stroke-width="2"/><path d="M17 10.5 21 8v8l-4-2.5v-3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
+        "表格/数据": `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z" stroke="currentColor" stroke-width="2"/><path d="M4 10h16M10 4v16" stroke="currentColor" stroke-width="2" opacity=".85"/></svg>`,
+        "PPT/汇报": `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v10H4V5Z" stroke="currentColor" stroke-width="2"/><path d="M8 19h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 15v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+        "设计/图片": `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z" stroke="currentColor" stroke-width="2"/><path d="M8.5 10.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" fill="currentColor" opacity=".9"/><path d="M4 16l4-4 4 4 3-3 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        "自动化/流程": `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 7h10v10H7V7Z" stroke="currentColor" stroke-width="2"/><path d="M4 12h3m10 0h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+        "表单/收集": `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h10a2 2 0 0 1 2 2v14H7a2 2 0 0 0-2 2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2"/><path d="M9 9h6M9 13h6M9 17h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+        "PDF/扫描": `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3h7l3 3v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2"/><path d="M14 3v4h4" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
+        "时间/任务": `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" stroke="currentColor" stroke-width="2"/><path d="M12 7v6l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+        "文件/资料": `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`
+      };
+      return common[cat] || `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" stroke="currentColor" stroke-width="2"/><path d="M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+    }
+
+    function toolIconSvg(name){
+      const map = {
+        "ChatGPT": iconSvg("对话/助手"),
+        "Kimi": iconSvg("对话/助手"),
+        "豆包": iconSvg("对话/助手"),
+        "通义千问": iconSvg("对话/助手"),
+        "文心一言": iconSvg("对话/助手"),
+        "DeepSeek": iconSvg("对话/助手"),
+        "Gemini": iconSvg("对话/助手"),
+        "Perplexity": iconSvg("对话/助手"),
+        "腾讯元宝": iconSvg("对话/助手"),
+        "夸克AI": iconSvg("对话/助手"),
+        "Poe": iconSvg("对话/助手"),
+
+        "Notion": iconSvg("知识库/文档"),
+        "Notion AI": iconSvg("知识库/文档"),
+        "Obsidian": iconSvg("知识库/文档"),
+        "Confluence": iconSvg("知识库/文档"),
+
+        "飞书文档": iconSvg("协作/团队"),
+        "飞书会议": iconSvg("会议/纪要"),
+        "钉钉": iconSvg("协作/团队"),
+        "企业微信": iconSvg("协作/团队"),
+        "Slack": iconSvg("协作/团队"),
+        "Microsoft Teams": iconSvg("协作/团队"),
+
+        "Zoom": iconSvg("会议/纪要"),
+        "腾讯会议": iconSvg("会议/纪要"),
+        "Google Meet": iconSvg("会议/纪要"),
+        "Otter.ai": iconSvg("会议/纪要"),
+        "Fireflies.ai": iconSvg("会议/纪要"),
+        "Whisper": iconSvg("会议/纪要"),
+
+        "Microsoft Word": iconSvg("写作/文档"),
+        "Google Docs": iconSvg("写作/文档"),
+        "WPS": iconSvg("写作/文档"),
+        "Grammarly": iconSvg("写作/文档"),
+        "QuillBot": iconSvg("写作/文档"),
+        "Hemingway": iconSvg("写作/文档"),
+
+        "Microsoft Excel": iconSvg("表格/数据"),
+        "Google Sheets": iconSvg("表格/数据"),
+        "Airtable": iconSvg("表格/数据"),
+        "Metabase": iconSvg("表格/数据"),
+        "Looker Studio": iconSvg("表格/数据"),
+        "GA4": iconSvg("表格/数据"),
+        "Lark Base": iconSvg("表格/数据"),
+        "Power BI": iconSvg("表格/数据"),
+        "Zapier Tables": iconSvg("表格/数据"),
+
+        "Microsoft PowerPoint": iconSvg("PPT/汇报"),
+        "Google Slides": iconSvg("PPT/汇报"),
+        "Gamma": iconSvg("PPT/汇报"),
+        "Tome": iconSvg("PPT/汇报"),
+
+        "Canva": iconSvg("设计/图片"),
+        "Figma": iconSvg("设计/图片"),
+        "Remove.bg": iconSvg("设计/图片"),
+        "Midjourney": iconSvg("设计/图片"),
+
+        "n8n": iconSvg("自动化/流程"),
+        "Zapier": iconSvg("自动化/流程"),
+        "Make": iconSvg("自动化/流程"),
+        "IFTTT": iconSvg("自动化/流程"),
+        "Dify": iconSvg("自动化/流程"),
+        "Make.com Templates": iconSvg("自动化/流程"),
+        "Zapier Templates": iconSvg("自动化/流程"),
+
+        "Tally": iconSvg("表单/收集"),
+        "Typeform": iconSvg("表单/收集"),
+        "Calendly": iconSvg("表单/收集"),
+
+        "Adobe Acrobat": iconSvg("PDF/扫描"),
+        "Smallpdf": iconSvg("PDF/扫描"),
+        "iLovePDF": iconSvg("PDF/扫描"),
+        "DocuSign": iconSvg("PDF/扫描"),
+
+        "Notion Calendar": iconSvg("时间/任务"),
+        "Todoist": iconSvg("时间/任务"),
+        "Trello": iconSvg("时间/任务"),
+        "Asana": iconSvg("时间/任务"),
+        "Jira": iconSvg("时间/任务"),
+
+        "Google Drive": iconSvg("文件/资料"),
+        "OneDrive": iconSvg("文件/资料"),
+        "Dropbox": iconSvg("文件/资料"),
+        "GitHub": iconSvg("文件/资料"),
+
+        "Miro": iconSvg("协作/团队"),
+        "Whimsical": iconSvg("协作/团队"),
+        "Excalidraw": iconSvg("协作/团队"),
+        "ProcessOn": iconSvg("协作/团队"),
+        "XMind": iconSvg("协作/团队")
+      };
+      return map[name] || `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" stroke="currentColor" stroke-width="2"/><path d="M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+    }
+
+    function toolIconHtml(tool){
+      if(tool?.icon){
+        return `<img src="${escapeHtml(tool.icon)}" alt="${escapeHtml(tool.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-icon-name="${escapeHtml(tool.name)}" />`;
+      }
+      return toolIconSvg(tool?.name || "");
+    }
+
+    function attachIconFallback(root){
+      if(!root) return;
+      root.querySelectorAll('img[data-icon-name]').forEach(img => {
+        img.addEventListener("error", () => {
+          const name = img.getAttribute("data-icon-name") || "";
+          const wrap = img.parentElement;
+          if(!wrap) return;
+          wrap.innerHTML = toolIconSvg(name);
+        }, { once: true });
+      });
+    }
+
+    function renderQuickTools(){
+      if(!els.quickTools) return;
+      els.quickTools.innerHTML = quickTools.map(x => `
+        <button class="quick-tool" type="button" data-qt="1" data-cat="${escapeHtml(x.cat)}" data-q="${escapeHtml(x.q)}" data-event="oa1_quick_${escapeHtml(x.name)}" aria-label="${escapeHtml(x.name)}">
+          <span class="qt-ico">${iconSvg(x.cat)}</span>
+          <span class="qt-name">${escapeHtml(x.name)}</span>
+        </button>
+      `).join("");
+      els.quickTools.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-qt]");
+        if(!btn) return;
+        track(btn);
+        const cat = btn.getAttribute("data-cat") || "";
+        const q = btn.getAttribute("data-q") || "";
+        if(cat) state.activeCat = cat;
+        if(typeof q === "string") { state.q = normalize(q); els.q.value = q; }
+        renderTabs();
+        renderCatQuick();
+        renderGrid();
+        toast("已应用快捷筛选");
+      });
+    }
+
+    function renderRecommend(mode){
+      const prefer = [
+        "ChatGPT","Kimi","Notion AI","飞书文档","WPS","Microsoft Excel","Google Sheets",
+        "Gamma","Canva","Otter.ai","Fireflies.ai","n8n","Zapier","Tally","Adobe Acrobat","Todoist"
+      ];
+      let list = [];
+      if(mode === "recent"){
+        const recentNames = loadRecents();
+        list = recentNames.map(n => tools.find(t => t.name === n)).filter(Boolean);
+        if(els.recommendDesc) els.recommendDesc.textContent = "你最近点过的工具（本地记录，不上传）。";
+        if(els.recommendHint) els.recommendHint.textContent = list.length ? "" : "暂无最近使用记录。点击下方工具卡片后，这里会自动出现。";
+      }else{
+        const picked = [];
+        for(const n of prefer){
+          const t = tools.find(x => x.name === n);
+          if(t) picked.push(t);
+        }
+        for(const t of tools){
+          if(!picked.some(x => x.name === t.name)) picked.push(t);
+        }
+        list = picked;
+        if(els.recommendDesc) els.recommendDesc.textContent = "全部工具入口（按推荐顺序置顶），向下滚动可继续浏览；图标来自外链或自动兜底。";
+        if(els.recommendHint) els.recommendHint.textContent = "";
+      }
+
+      if(!els.recommendGrid) return;
+      els.recommendGrid.innerHTML = list.map(t => `
+        <a class="rec-card" href="${escapeHtml(t.url)}" target="_blank" rel="noopener noreferrer" data-event="oa1_rec_open_${escapeHtml(t.name)}" data-tool="${escapeHtml(t.name)}" aria-label="${escapeHtml(t.name)}">
+          <span class="rec-icon">${toolIconHtml(t)}</span>
+          <span class="rec-text">
+            <span class="rec-name">${escapeHtml(t.name)}</span>
+            <span class="rec-sub">${escapeHtml(t.desc || "")}</span>
+          </span>
+        </a>
+      `).join("");
+      attachIconFallback(els.recommendGrid);
+
+      els.recommendGrid.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", (e) => {
+          track(e.currentTarget);
+          const name = e.currentTarget.getAttribute("data-tool") || "";
+          pushRecent(name);
+        });
+      });
+    }
+
+    function renderCatQuick(){
+      if(!els.catQuick) return;
+      const categories = getCategories(tools).filter(x => x !== "全部");
+      const list = categories.slice(0, 16);
+      els.catQuick.innerHTML = list.map(cat => {
+        const active = cat === state.activeCat ? "active" : "";
+        return `
+          <button class="cat-btn ${active}" type="button" data-cat="${escapeHtml(cat)}" data-event="oa1_cat_${escapeHtml(cat)}" aria-label="${escapeHtml(cat)}">
+            <span class="cat-ico">${iconSvg(cat)}</span>
+            <span class="cat-name">${escapeHtml(cat)}</span>
+          </button>
+        `;
+      }).join("");
+    }
+
+    function renderInlineAd(){
+      return `
+        <div class="ad inline-ad panel" role="region" aria-label="信息流推荐">
+          <div class="ad-label" style="padding:12px 12px 0">
+            <span>信息流推荐</span>
+            <span class="badge">合作</span>
+          </div>
+          <div class="ad-slot" style="margin:12px">
+            <div><b>1bgp.com 云服务器 / 物理服务器</b></div>
+            <div class="muted">支持部署内部工具、数据看板与自动化任务；按需扩容，快速上线。</div>
+            <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+              <a class="mini primary" href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="oa1_ad_feed_click">查看配置</a>
+              <a class="mini" href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="oa1_ad_feed_go">进入官网</a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderGrid(){
+      const list = tools.filter(shouldShow);
+      els.activeCat.textContent = state.activeCat;
+      updateCounts(list.length);
+
+      if(list.length === 0){
+        els.grid.innerHTML = `
+          <div class="card" style="grid-column:1 / -1">
+            <div class="card-title">没有匹配结果</div>
+            <p class="card-desc">尝试更换分类或减少关键词，或取消“只看收藏”。</p>
+            <div class="card-actions">
+              <button class="mini primary" type="button" id="resetFilters" data-event="oa1_reset_filters">重置筛选</button>
+              <a class="mini" href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="oa1_cta_from_empty">看看部署方案</a>
+            </div>
+          </div>
+        `;
+        document.getElementById("resetFilters").addEventListener("click", (e) => {
+          track(e.currentTarget);
+          state.activeCat = "全部";
+          state.q = "";
+          state.favOnly = false;
+          els.q.value = "";
+          els.showFavs.textContent = "只看收藏";
+          renderTabs();
+          renderCatQuick();
+          renderGrid();
+          toast("已重置筛选");
+        });
+        return;
+      }
+
+      const nodes = [];
+      const insertAt = Math.min(8, list.length);
+      list.forEach((item, idx) => {
+        if(idx === insertAt) nodes.push(renderInlineAd());
+        const fav = state.favs.has(item.name);
+        nodes.push(`
+          <article class="card" data-name="${escapeHtml(item.name)}" data-cat="${escapeHtml(item.cat)}">
+            <div class="card-head">
+              <div>
+                <h3 class="card-title">${escapeHtml(item.name)}</h3>
+                <p class="card-desc">${escapeHtml(item.desc)}</p>
+              </div>
+              <button class="star" type="button" aria-label="收藏" aria-pressed="${fav ? "true" : "false"}" data-fav="${escapeHtml(item.name)}" data-event="oa1_fav_toggle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 17.3 6.2 20.6l1.1-6.6L2.6 9.7l6.6-1 2.8-6 2.8 6 6.6 1-4.7 4.3 1.1 6.6L12 17.3Z" stroke="currentColor" stroke-width="2" opacity="${fav ? "1" : ".7"}" fill="${fav ? "rgba(14,165,233,.22)" : "transparent"}"/>
+                </svg>
+              </button>
+            </div>
+            <div class="tags">
+              <span class="tag">${escapeHtml(item.cat)}</span>
+              ${(item.tags || []).slice(0,3).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join("")}
+            </div>
+            <div class="card-actions">
+              <a class="mini primary" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" data-event="oa1_tool_open" data-tool="${escapeHtml(item.name)}">访问</a>
+              <button class="mini" type="button" data-event="oa1_tool_copy" data-copy="${escapeHtml(item.name)}｜${escapeHtml(item.url)}">复制链接</button>
+            </div>
+          </article>
+        `);
+      });
+      els.grid.innerHTML = nodes.join("");
+
+      els.grid.querySelectorAll("[data-fav]").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          track(e.currentTarget);
+          const name = e.currentTarget.getAttribute("data-fav");
+          if(!name) return;
+          if(state.favs.has(name)) state.favs.delete(name);
+          else state.favs.add(name);
+          saveFavs();
+          renderGrid();
+          toast(state.favs.has(name) ? "已收藏" : "已取消收藏");
+        });
+      });
+
+      els.grid.querySelectorAll("[data-copy]").forEach(btn => {
+        btn.addEventListener("click", async (e) => {
+          track(e.currentTarget);
+          const text = e.currentTarget.getAttribute("data-copy") || "";
+          try{
+            await navigator.clipboard.writeText(text);
+            toast("已复制到剪贴板");
+          }catch(_){
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            ta.style.position = "fixed";
+            ta.style.left = "-9999px";
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            ta.remove();
+            toast("已复制到剪贴板");
+          }
+        });
+      });
+
+      els.grid.querySelectorAll('a[data-event="oa1_tool_open"]').forEach(a => {
+        a.addEventListener("click", (e) => {
+          track(e.currentTarget);
+          const name = e.currentTarget.getAttribute("data-tool") || "";
+          pushRecent(name);
+        });
+      });
+
+      els.grid.querySelectorAll('[data-event^="oa1_ad_"]').forEach(a => {
+        a.addEventListener("click", (e) => track(e.currentTarget));
+      });
+    }
+
+    function setActiveCat(cat){
+      state.activeCat = cat;
+      renderTabs();
+      renderCatQuick();
+      renderGrid();
+    }
+
+    function init(){
+      loadFavs();
+      els.year.textContent = String(new Date().getFullYear());
+      renderQuickTools();
+      renderRecommend("recommend");
+      renderTabs();
+      renderCatQuick();
+      renderGrid();
+      updateCounts(tools.length);
+
+      const recTabs = document.querySelectorAll("[data-rec]");
+      recTabs.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          track(e.currentTarget);
+          const mode = e.currentTarget.getAttribute("data-rec") || "recommend";
+          recTabs.forEach(x => {
+            const active = x === e.currentTarget;
+            x.classList.toggle("active", active);
+            x.setAttribute("aria-selected", active ? "true" : "false");
+          });
+          renderRecommend(mode);
+        });
+      });
+
+      els.q.addEventListener("input", () => {
+        state.q = normalize(els.q.value);
+        renderGrid();
+      });
+
+      els.tabs.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-cat]");
+        if(!btn) return;
+        track(btn);
+        const cat = btn.getAttribute("data-cat");
+        if(!cat) return;
+        setActiveCat(cat);
+      });
+
+      if(els.catQuick){
+        els.catQuick.addEventListener("click", (e) => {
+          const btn = e.target.closest("[data-cat]");
+          if(!btn) return;
+          track(btn);
+          const cat = btn.getAttribute("data-cat");
+          if(!cat) return;
+          setActiveCat(cat);
+        });
+      }
+
+      els.showFavs.addEventListener("click", (e) => {
+        track(e.currentTarget);
+        state.favOnly = !state.favOnly;
+        els.showFavs.textContent = state.favOnly ? "显示全部" : "只看收藏";
+        renderGrid();
+        toast(state.favOnly ? "仅显示收藏" : "显示全部");
+      });
+
+      els.fabTop.addEventListener("click", (e) => {
+        track(e.currentTarget);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      els.submitTool.addEventListener("click", (e) => {
+        track(e.currentTarget);
+        window.open("https://www.1bgp.com/", "_blank", "noopener,noreferrer");
+      });
+
+      els.openDisclaimer.addEventListener("click", (e) => {
+        e.preventDefault();
+        track(e.currentTarget);
+        toast("使用说明：本站为办公工具入口整理，内容仅供参考，请自行判断适用性。");
+      });
+
+      els.openPrivacy.addEventListener("click", (e) => {
+        e.preventDefault();
+        track(e.currentTarget);
+        toast("隐私说明：收藏/最近使用仅保存在你的浏览器本地，不会上传。");
+      });
+    }
+
+    init();
+  </script>
+</body>
+</html>
